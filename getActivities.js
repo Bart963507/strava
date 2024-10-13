@@ -6,7 +6,7 @@ const params = {'per_page': 200, 'page': 1}
 const queryString = new URLSearchParams(params).toString();
 const fullUrl = `${url}?${queryString}`
 
-
+// Get the accesstoken with the getAuth function
 const getAcccesToken = async function () {
     try {
         const authResponse = await getAuth()
@@ -18,6 +18,8 @@ const getAcccesToken = async function () {
     }
 }
 
+
+// Get the accesstoken with the getAccesToken function
 const getActivities = async function(){
     try{
         const accessToken = await getAcccesToken()
@@ -36,5 +38,6 @@ const getActivities = async function(){
     }
 }
 
-
-console.log(await getActivities())
+// Save the activities in a variable
+//const activities = await getActivities()
+//console.log(activities.filter(a => a.name.includes("Balkan")))
