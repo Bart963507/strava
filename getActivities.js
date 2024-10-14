@@ -41,3 +41,5 @@ const getActivities = async function(){
 // Save the activities in a variable
 //const activities = await getActivities()
 //console.log(activities.filter(a => a.name.includes("Balkan")))
+
+export{ getActivities }
