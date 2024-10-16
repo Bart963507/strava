@@ -12,4 +12,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'false'
 }).addTo(map);
 
+
+
 export { map }
