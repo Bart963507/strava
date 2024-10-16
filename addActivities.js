@@ -1,6 +1,7 @@
 import { getActivities } from "./getActivities.js";
 import { map }  from "./loadMap.js";
 
+const sideBar = document.getElementById("sidebar")
 const activities = await getActivities()
 const balkanHike = activities.filter(a => a.name.includes("Balkan"))
 const irelandHike = activities.filter(a => a.name.includes("Kerry"))
@@ -20,12 +21,25 @@ activities.forEach(activity => {
         <b>Duur:</b> ${Math.round(activity["moving_time"]/60)} Minuten <br>
         `
         )
-});
+
+        
+    const mapDiv = document.createElement("div")   
+    mapDiv.setAttribute("id", `map-${activity["id"]}`)
+    mapDiv.style.width = "100%";  // Set width to 100% of the sidebar or a specific pixel value
+    mapDiv.style.height = "200px"; // Set a fixed height for visibility
+    console.log(mapDiv)
+    sideBar.append(mapDiv) 
+    const miniMap = L.map(`map-${activity["id"]}`).setView([51.505, -0.09], 13);
+    miniMap.fitBounds(coordinates)
+    L.polyline(coordinates, {color: setColor(activity.sport_type)}).addTo(miniMap);
+      
+    });
 
 
 const encodedPolyline = activities[activities.length-1].map.summary_polyline
 const coordinates = polyline.decode(encodedPolyline);
 map.fitBounds(coordinates)
+
 
 function setColor(activity) {
     switch(activity) {
@@ -43,3 +57,5 @@ function setColor(activity) {
             return "black";
     }
 }
+
+
