@@ -4,21 +4,67 @@
 
 
 .center {
-    width: 80vw;
+    width: 79vw;
   }
 
 .left {
   width: 20vw;
   overflow:visible;
-
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  overflow-y: scroll;
 }
+
+
 
 .column {
   float: left;  
   height: 100vh;
+ 
 }
 
 #sidebar > div {
   width: 100%;   /* or a specific width */
-  height: 200px; /* Adjust height as needed */
+  height: 20vh; /* Adjust height as needed */
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  overflow-y:scroll;
+  height:100vh
+}
+
+ul li {
+  display: flex; /* Make the li a flex container */
+  justify-content: center; /* Center contents horizontally */
+  align-items: center; /* Center contents vertically */
+  text-align: center; /* Center text inside the li */
+  width: 100%; /* Full width for the li */
+  height: 20vh; /* Set a specific height to li for demonstration */
+  padding: 10px;
+  box-sizing: border-box;
+  background: url(pictures/map_background.jpg);
+  opacity: 0.8;
+  border-radius: 15px;
+}
+
+
+ul li:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.02);
+}
+
+
+ul li:nth-child(even){
+  background-color: #f7f7f7;
+}
+
+
+#divider{
+  width:1vw;
+  height:100vh;
+  background-color: #f9f9f9;
+  border-radius: 8px 0 0 8px;
 }
