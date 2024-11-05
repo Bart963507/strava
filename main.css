@@ -50,13 +50,13 @@
 }
 
 
-/* Set the ul to display as a block */
+
 ul {
   list-style-type: none;
   padding: 0;
   overflow-y: scroll;
   height: 100vh;
-  display: block; /* Ensure the list is displayed as a block */
+  display: block; 
 }
 
 ul li {
@@ -81,12 +81,7 @@ ul li:hover {
 
 .sideInfoDiv {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-}
-
-.sideInfoDiv .title {
-  width: 100%;
-  margin-top: 20px; /* Adjust the value to control the spacing */
+  flex-direction: column; 
 }
 
 
@@ -95,7 +90,7 @@ ul li:hover {
   height: 8px; 
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
 }
 
 .top-bar-Hike{

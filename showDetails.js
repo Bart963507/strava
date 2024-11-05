@@ -10,20 +10,7 @@ async function showDetails(activity){
     console.log(fullActivity)
 
 
-const closeButton = document.createElement("span");
-
-// Set the text and class for styling
-closeButton.textContent = "X";
-closeButton.className = "close-button";
-
-// Set the onclick event to hide the parent element
-closeButton.onclick = function() {
-    detailEle.style.display = "none";
-};
-
-// Append the close button to the desired parent element
-
-detailEle.appendChild(closeButton);
+    createCloseButton(detailEle)
 
     if (fullActivity.photos.count > 1){
         const photo = fullActivity.photos.primary.urls["600"]
@@ -34,10 +21,25 @@ detailEle.appendChild(closeButton);
               });
 
             detailEle.append(img)
-
     }
-
     };
+
+
+function createCloseButton(parentEle){
+    const closeButton = document.createElement("span");
+
+    // Set the text and class for styling
+    closeButton.textContent = "X";
+    closeButton.className = "close-button";
+
+    // Set the onclick event to hide the parent element
+    closeButton.onclick = function() {
+        parentEle.style.display = "none";
+    };
+
+    parentEle.appendChild(closeButton);
+
+}
 
 export { showDetails }
 
