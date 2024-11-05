@@ -1,10 +1,35 @@
 * {
   margin: 0;
+  font-family: 'Lato', sans-serif;
 }
 
 
+.close-button{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px;
+  cursor: pointer;
+}
+
+#map{
+  z-index:1;
+  position: relative
+}
+
+#detail-view {
+  position: absolute; /* Position it relative to the nearest positioned ancestor (the body in this case) */
+  bottom: 0; /* Position it at the bottom of the screen */
+  right: 0; /* Position it at the right side of the screen */
+  z-index: 2;
+  background-color: white;
+  display: none;
+}
+
 .center {
-    width: 79vw;
+    width: 80vw;
+    position: absolute; 
+    right: 0; 
   }
 
 .left {
@@ -15,61 +40,85 @@
   overflow-y: scroll;
 }
 
-
-
 .column {
   float: left;  
   height: 100vh;
- 
 }
 
 #sidebar > div {
-  width: 100%;   /* or a specific width */
-  height: 20vh; /* Adjust height as needed */
+  width: 100%; 
 }
 
 
+/* Set the ul to display as a block */
 ul {
   list-style-type: none;
   padding: 0;
-  overflow-y:scroll;
-  height:100vh
+  overflow-y: scroll;
+  height: 100vh;
+  display: block; /* Ensure the list is displayed as a block */
 }
 
 ul li {
-  display: flex; /* Make the li a flex container */
-  justify-content: center; /* Center contents horizontally */
-  align-items: center; /* Center contents vertically */
-  text-align: center; /* Center text inside the li */
-  width: 100%; /* Full width for the li */
-  height: 20vh; /* Set a specific height to li for demonstration */
-  padding: 10px;
-  box-sizing: border-box;
-  opacity: 0.8;
-  border-radius: 15px;
+  position: relative;           
+  display: block;               
+  text-align: center;           
+  width: 100%;                                  
+  padding: 10px;                
+  margin-bottom: 15px;          
+  border: 1px solid #ddd;       
+  border-radius: 15px;         
+  overflow: hidden;             
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+  opacity: 0.8;                 
+  box-sizing: border-box;       
 }
-
 
 ul li:hover {
   background-color: #f0f0f0;
   transform: scale(1.02);
 }
 
-
-ul li:nth-child(even){
-  background-color: #f7f7f7;
-}
-
-.sideMapDiv {
+.sideInfoDiv {
   display: flex;
   flex-direction: column; /* Stack elements vertically */
 }
 
-
-.sideMapDiv .title {
+.sideInfoDiv .title {
   width: 100%;
   margin-top: 20px; /* Adjust the value to control the spacing */
 }
+
+
+.top-bar {
+  width: 100%;
+  height: 8px; 
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin-bottom: 0px;
+}
+
+.top-bar-Hike{
+  background-color: red; 
+}
+
+.top-bar-Run{
+  background-color: blue; 
+}
+
+.top-bar-Ride{
+  background-color: green; 
+}
+
+.top-bar-TrailRun{
+  background-color: purple; 
+}
+
+.top-bar-MountainBikeRide{
+  background-color: lightblue; 
+}
+
+
 /*
 .nav-list {
   display: flex;
@@ -82,7 +131,7 @@ ul li:nth-child(even){
   position: absolute;
   top: 0;
   left: 0;
-  align-items: center; /* Vertically centers the buttons */
+  align-items: center;
   align-items: stretch;
 }
 
@@ -94,19 +143,19 @@ ul li:nth-child(even){
   text-decoration: none;
   transition: background-color 0.3s ease, color 0.3s ease;
   height: 100%;
-  align-items: center; /* Vertically center the text */
-  justify-content: center; /* Horizontally center the text */
+  align-items: center; 
+  justify-content: center; 
 }
 
 .nav-list a:hover {
   background-color: #aa0523;
   color: #fff;
-  font-weight: bold; /* Make it more prominent */
+  font-weight: bold; 
 }
 
 .nav-list a.active {
   background-color: #fff;
   color: #e2002b;
-  border-bottom: 3px solid #e2002b; /* Highlight the active link */
+  border-bottom: 3px solid #e2002b; 
 }
 */

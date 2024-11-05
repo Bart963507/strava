@@ -36,4 +36,27 @@ const getActivities = async function () {
   }
 };
 
+const getActivity = async function (activityID) {
+  try {
+    const accessToken = await getAcccesToken();
+    const activityUrl = `https://www.strava.com/api/v3/activities/${activityID}`
+    // Make the GET request using fetch
+    const request = await fetch(activityUrl, {
+      method: "GET",
+      params: params,
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    const response = await request.json();
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+
+
+export { getActivity };
 export { getActivities };

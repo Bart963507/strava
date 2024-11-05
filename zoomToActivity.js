@@ -1,7 +1,9 @@
-function zoomToActivity(activity, map){
-    console.log(activity)
-    const bounds = activity.getBounds()
+import { showDetails } from "./showDetails.js";
+
+function zoomToActivity(polylinePath, map, activity){
+    const bounds = polylinePath.getBounds()
     map.fitBounds(bounds, {padding: [200,200]});
+    showDetails(activity)
 }
 
 export { zoomToActivity }
