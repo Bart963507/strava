@@ -1,5 +1,6 @@
 import { generatePopup } from "./addActivities.js";
 import { getActivity  } from "./getActivities.js";
+import { getPhotos } from "./getActivities.js";
 
 async function showDetails(activity){
     const detailEle = document.querySelector("#detail-view")
@@ -12,17 +13,20 @@ async function showDetails(activity){
 
     createCloseButton(detailEle)
 
-    if (fullActivity.photos.count > 1){
-        const photo = fullActivity.photos.primary.urls["600"]
-        const img =  Object.assign(document.createElement("img"), {
-                src: photo,
+    if (fullActivity.photos.count > 0){
+        const photos = await getPhotos(activity["id"]);
+            photos.forEach((photo) => {
+                console.log(photo)
+                const picture = photo.urls["1800"]
+                const img =  Object.assign(document.createElement("img"), {
+                src: picture,
                 width: 400,
                 height: 400
               });
-
-            detailEle.append(img)
+            detailEle.append(img)})
+        }  
     }
-    };
+
 
 
 function createCloseButton(parentEle){
