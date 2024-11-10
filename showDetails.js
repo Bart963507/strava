@@ -3,21 +3,31 @@ import { getActivity  } from "./getActivities.js";
 import { getPhotos } from "./getActivities.js";
 
 async function showDetails(activity){
+    
     const detailEle = document.querySelector("#detail-view")
     detailEle.style.display = "block"
-    detailEle.innerHTML = generatePopup(activity)
+    detailEle.innerHTML = ""
 
+    createCloseButton(detailEle)
+
+    const statsDiv = Object.assign(document.createElement("div"), {
+        className: "stats",
+        innerHTML:generatePopup(activity)
+      });
+
+    detailEle.append(statsDiv)
+    
     const fullActivity = await getActivity(activity["id"])
     console.log(fullActivity)
 
 
-    createCloseButton(detailEle)
+    
 
     if (fullActivity.photos.count > 0){
         const photos = await getPhotos(activity["id"]);
             photos.forEach((photo) => {
                 console.log(photo)
-                const picture = photo.urls["1800"]
+                const picture = photo.urls["5000"]
                 const img =  Object.assign(document.createElement("img"), {
                 src: picture,
                 width: 400,
@@ -25,7 +35,11 @@ async function showDetails(activity){
               });
             detailEle.append(img)})
         }  
+        
     }
+
+
+
 
 
 
@@ -41,7 +55,7 @@ function createCloseButton(parentEle){
         parentEle.style.display = "none";
     };
 
-    parentEle.appendChild(closeButton);
+    parentEle.append(closeButton);
 
 }
 

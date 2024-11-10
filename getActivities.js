@@ -54,10 +54,11 @@ const getActivity = async function (activityID) {
     console.log(err);
   }
 };
+
 const getPhotos = async function (activityID) {
   try {
     const accessToken = await getAcccesToken();
-    const activityUrl = `https://www.strava.com/api/v3/activities/${activityID}/photos`
+    const activityUrl = `https://www.strava.com/api/v3/activities/${activityID}/photos?size=5000`
     // Make the GET request using fetch
     const request = await fetch(activityUrl, {
       method: "GET",
