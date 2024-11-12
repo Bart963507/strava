@@ -5,15 +5,16 @@ import { getPhotos } from "./getActivities.js";
 async function showDetails(activity){
     
     const detailEle = document.querySelector("#detail-view")
+    const flexContainer = document.querySelector(".flex-container")
+    const statsDiv = document.querySelector(".stats")
     detailEle.style.display = "block"
-    detailEle.innerHTML = ""
+    flexContainer.innerHTML = ""
+    statsDiv.innerHTML = ""
 
-    createCloseButton(detailEle)
 
-    const statsDiv = Object.assign(document.createElement("div"), {
-        className: "stats",
-        innerHTML:generatePopup(activity)
-      });
+    
+    statsDiv.innerHTML = generatePopup(activity)
+  
 
     detailEle.append(statsDiv)
     
@@ -28,36 +29,17 @@ async function showDetails(activity){
             photos.forEach((photo) => {
                 console.log(photo)
                 const picture = photo.urls["5000"]
-                const img =  Object.assign(document.createElement("img"), {
-                src: picture,
-                width: 400,
-                height: 400
-              });
-            detailEle.append(img)})
+                const imgElement = document.createElement("div")
+                imgElement.innerHTML
+                 = `
+                <div class="gallery">
+                    <img src= ${picture}>
+                </div>
+                `
+            flexContainer.append(imgElement)})
         }  
         
     }
-
-
-
-
-
-
-function createCloseButton(parentEle){
-    const closeButton = document.createElement("span");
-
-    // Set the text and class for styling
-    closeButton.textContent = "X";
-    closeButton.className = "close-button";
-
-    // Set the onclick event to hide the parent element
-    closeButton.onclick = function() {
-        parentEle.style.display = "none";
-    };
-
-    parentEle.append(closeButton);
-
-}
 
 export { showDetails }
 

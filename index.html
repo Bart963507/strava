@@ -25,16 +25,22 @@
 <script type="module" src = "addActivities.js" defer></script> 
 <script type="module" src = "zoomToActivity.js" defer></script> 
 <script type="module" src = "showDetails.js" defer></script> 
+<script type="module" src = "closeParent.js" defer></script> 
 
 
 
 <ul id="sidebar" class = "column left"></ul>
 
-
+<div id="detail-img"></div>
 
 <div id="map" class = "column center"></div>
 
 <div id="detail-view" class = "center">
+    <button onclick= "this.parentElement.style.display='none'" class = "close-button">X</button>
+    <div class="stats"></div>
+    <div class="flex-container">
+
+    </div>
 </div>
 
 

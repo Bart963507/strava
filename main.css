@@ -4,13 +4,35 @@
 }
 
 
+div.gallery img {
+  max-width: 25vw;
+  height: auto;
+  align-items: center;
+  max-height: 25vh;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  max-width: 25vw;
+  max-height: 25vh;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+
 .close-button{
   position: sticky;
+  float: right;
   right: 10px;
   top: 10px;
   margin: 20px;
   cursor: pointer;
-  display:block
+  display:block;
+  text-align: center;
   
 }
 
