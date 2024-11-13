@@ -25,6 +25,7 @@ div.gallery:hover {
 
 
 .close-button{
+  order: 1;
   position: sticky;
   float: right;
   right: 10px;
@@ -50,6 +51,16 @@ div.gallery:hover {
   display: none;
   overflow-Y: scroll;
   max-height: 50vh;
+  flex-direction: column; /* Stack items vertically */
+  background-color: #f0f0f0;
+}
+
+.detail-component {
+  margin: 10px;
+  padding: 16px;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 .center {

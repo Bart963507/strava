@@ -7,7 +7,7 @@ async function showDetails(activity){
     const detailEle = document.querySelector("#detail-view")
     const flexContainer = document.querySelector(".flex-container")
     const statsDiv = document.querySelector(".stats")
-    detailEle.style.display = "block"
+    detailEle.style.display = "flex"
     flexContainer.innerHTML = ""
     statsDiv.innerHTML = ""
 
@@ -19,10 +19,6 @@ async function showDetails(activity){
     detailEle.append(statsDiv)
     
     const fullActivity = await getActivity(activity["id"])
-    console.log(fullActivity)
-
-
-    
 
     if (fullActivity.photos.count > 0){
         const photos = await getPhotos(activity["id"]);
@@ -40,6 +36,6 @@ async function showDetails(activity){
         }  
         
     }
-
+    
 export { showDetails }
 
