@@ -1,9 +1,7 @@
 import { generatePopup } from "./addActivities.js";
 import { getActivity  } from "./getActivities.js";
 import { getPhotos } from "./getActivities.js";
-import { layerArr } from "./addActivities.js";
-import { borderLayer } from "./loadMap.js";
-
+import { highlightObject } from "./highlightObject.js";
 
 async function showDetails(activity){
     
@@ -35,25 +33,7 @@ async function showDetails(activity){
             flexContainer.append(imgElement)})
         }  
      
-    console.log(layerArr[0].options["ID"], activity.id)
-    const clickedLayer = layerArr.find(layer => layer.options["ID"] === activity.id)
-    
-    borderLayer.clearLayers()
-    const highlightLayer = L.geoJSON(clickedLayer.toGeoJSON(), {
-        style: {
-            weight: 7,
-            opacity: 1,
-            color: "black",
-        },
-    }).addTo(borderLayer);
-
-    
-    const border = L.geoJSON(clickedLayer.toGeoJSON(), {
-        style: {
-            weight:5,
-            opacity:1,
-            color:"#39ff14"},
-    }).addTo(borderLayer);
+    highlightObject(activity)
     
 }
 export { showDetails }
