@@ -23,7 +23,7 @@ div.gallery img {
 
 div.gallery {
   margin: 5px;
-  border: 1px solid #ccc;
+  border: 5px solid #fffdfd;
   max-width: 25vw;
   max-height: 25vh;
   flex: 0 0 32%;
@@ -33,7 +33,7 @@ div.gallery {
 }
 
 div.gallery:hover {
-  border: 1px solid #777;
+  border: 5px solid #474747;
 }
 
 

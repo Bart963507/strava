@@ -12,6 +12,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: 'false'
 }).addTo(map);
 
-
+const activityLayer =  L.layerGroup().addTo(map);
+const borderLayer = L.layerGroup().addTo(map)
 
 export { map }
+export { activityLayer }
+export { borderLayer }

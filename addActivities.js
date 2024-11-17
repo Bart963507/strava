@@ -1,6 +1,5 @@
 import { getActivities } from "./getActivities.js";
-import { map } from "./loadMap.js";
-import { showDetails } from "./showDetails.js";
+import { activityLayer, map } from "./loadMap.js";
 import { zoomToActivity } from "./zoomToActivity.js";
 
 /// This module needs to be cleaned up into functions
@@ -8,14 +7,20 @@ import { zoomToActivity } from "./zoomToActivity.js";
 /// Declare the first variables
 const sideBar = document.getElementById("sidebar");
 const activities = await getActivities();
+const layerArr =[]
+
 
 /// For each activity add it to the map and create information and the left.
 activities.forEach((activity) => {
   const encodedPolyline = activity.map.summary_polyline;
   const coordinates = polyline.decode(encodedPolyline);
   const polylinePath = L.polyline(coordinates, {
-    color: setColor(activity.sport_type),
-  }).addTo(map);
+    color: setColor(activity.sport_type), ID: activity.id
+  })
+  
+  layerArr.push(polylinePath)
+  polylinePath.addTo(activityLayer);
+
 
   // Add a pop-up to the activity
   polylinePath.bindPopup(generatePopup(activity));
@@ -81,9 +86,9 @@ function setColor(activity) {
 }
 
 function zoomToLastActivity() {
-  console.log(activities[activities.length - 1]);
+  console.log(activities[0]);
   const encodedPolyline =
-    activities[activities.length - 1].map.summary_polyline;
+    activities[0].map.summary_polyline;
   const coordinates = polyline.decode(encodedPolyline);
   map.fitBounds(coordinates);
 }
@@ -121,3 +126,4 @@ function generatePopup(activity) {
 
 
 export { generatePopup }
+export { layerArr }
