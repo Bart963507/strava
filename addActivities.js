@@ -19,7 +19,7 @@ activities.forEach((activity) => {
     color: setColor(activity.sport_type), ID: activity.id
   })
   
-  polylinePath.on("click", () => showDetails(activity))
+  polylinePath.on("click", (e) => showDetails(activity))
   layerArr.push(polylinePath)
   polylinePath.addTo(activityLayer);
 

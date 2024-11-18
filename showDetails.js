@@ -8,18 +8,23 @@ async function showDetails(activity){
     const detailEle = document.querySelector("#detail-view")
     const flexContainer = document.querySelector(".flex-container")
     const statsDiv = document.querySelector(".stats")
-    detailEle.style.display = "flex"
+    
+
+    //Clear the information of previous activity
     flexContainer.innerHTML = ""
     statsDiv.innerHTML = ""
 
+    //Show the detail pane
+    detailEle.style.display = "flex"
     statsDiv.innerHTML = generatePopup(activity)
-  
+    
 
     detailEle.append(statsDiv)
     
     const fullActivity = await getActivity(activity["id"])
 
     if (fullActivity.photos.count > 0){
+        flexContainer.style.display = "flex"
         const photos = await getPhotos(activity["id"]);
             photos.forEach((photo) => {
                 const picture = photo.urls["5000"]
@@ -31,7 +36,10 @@ async function showDetails(activity){
                 </div>
                 `
             flexContainer.append(imgElement)})
-        }  
+        }
+    else{
+        flexContainer.style.display = "none"
+    }  
      
     highlightObject(activity)
     

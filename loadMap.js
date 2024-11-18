@@ -5,9 +5,11 @@
 
 const map = L.map('map').setView([51.505, -0.09], 13);
 
-map.on("click", () => removeHighlights())
+map.on("click", (e) => removeHighlights(e))
 
-const removeHighlights = function(){
+const removeHighlights = function(e){
+    const clickedElement = e.originalEvent.target;
+    if (clickedElement.id !== "map"){return;}
     const detailEle = document.querySelector("#detail-view")   
     detailEle.style.display = "none"
     borderLayer.clearLayers()

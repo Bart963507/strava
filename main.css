@@ -8,7 +8,7 @@
 }
 
 .flex-container {
-  display: flex;
+  display: none;
   flex-wrap: wrap; /* Allow wrapping of images */
   justify-content: space-around; /* Spread images evenly with space between */
   align-items: center; /* Center images vertically */
