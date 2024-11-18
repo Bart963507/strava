@@ -1,5 +1,6 @@
 import { getActivities } from "./getActivities.js";
 import { activityLayer, map } from "./loadMap.js";
+import { showDetails } from "./showDetails.js";
 import { zoomToActivity } from "./zoomToActivity.js";
 
 /// This module needs to be cleaned up into functions
@@ -18,12 +19,13 @@ activities.forEach((activity) => {
     color: setColor(activity.sport_type), ID: activity.id
   })
   
+  polylinePath.on("click", () => showDetails(activity))
   layerArr.push(polylinePath)
   polylinePath.addTo(activityLayer);
 
 
   // Add a pop-up to the activity
-  polylinePath.bindPopup(generatePopup(activity));
+  //polylinePath.bindPopup(generatePopup(activity));
 
   
   //Create top bar element for styling

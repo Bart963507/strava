@@ -1,8 +1,17 @@
 
+
 //Define the map and the view of the map
 
 
 const map = L.map('map').setView([51.505, -0.09], 13);
+
+map.on("click", () => removeHighlights())
+
+const removeHighlights = function(){
+    const detailEle = document.querySelector("#detail-view")   
+    detailEle.style.display = "none"
+    borderLayer.clearLayers()
+}
 
 
 //Add the tilelayer of openstreetmap to the map
